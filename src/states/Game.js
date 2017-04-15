@@ -17,12 +17,24 @@ export default class extends Phaser.State {
     banner.smoothed = false;
     banner.anchor.setTo(0.5);
 
-    this.gameboard = new Gameboard({
+    let boardLayer = game.add.group();
+    let policiesLayer = game.add.group();
+
+    this.liberalBoard = new Gameboard({
       game: this,
       x: this.world.centerX,
-      y: this.world.centerY,
+      y: 0,
       asset: 'liberal-board'
     });
+    boardLayer.add(this.liberalBoard);
+
+    this.fascistBoard = new Gameboard({
+      game: this,
+      x: this.world.centerX,
+      y: this.game.cache.getImage('fascist-board').height + 10,
+      asset: 'fascist-board'
+    });
+    boardLayer.add(this.fascistBoard);
 
     this.policy = new Policy({
       game: this,
@@ -30,6 +42,7 @@ export default class extends Phaser.State {
       y: this.world.centerY,
       asset: 'liberal-policy'
     });
+    policiesLayer.add(this.policy);
 
     this.policyTwo = new Policy({
       game: this,
@@ -37,10 +50,7 @@ export default class extends Phaser.State {
       y: this.world.centerY,
       asset: 'fascist-policy'
     });
-
-    this.game.add.existing(this.policy);
-    this.game.add.existing(this.policyTwo);
-    this.game.add.existing(this.gameboard);
+    policiesLayer.add(this.policyTwo);
   }
 
   render () {
