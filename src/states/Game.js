@@ -1,6 +1,6 @@
 /* globals __DEV__ */
-import Phaser from 'phaser';
-import Mushroom from '../sprites/Mushroom';
+import Phaser from 'phaser'
+import Policy from '../sprites/Policy'
 import Gameboard from '../sprites/Gameboard';
 
 export default class extends Phaser.State {
@@ -17,28 +17,33 @@ export default class extends Phaser.State {
     banner.smoothed = false;
     banner.anchor.setTo(0.5);
 
-    this.mushroom = new Mushroom({
-      game: this,
-      x: this.world.centerX,
-      y: this.world.centerY,
-      asset: 'mushroom'
-    });
-
     this.gameboard = new Gameboard({
       game: this,
       x: this.world.centerX,
       y: this.world.centerY,
-      asset: 'mushroom'
+      asset: 'liberal-board'
     });
 
-    this.game.add.existing(this.mushroom);
+    this.policy = new Policy({
+      game: this,
+      x: this.world.centerX,
+      y: this.world.centerY,
+      asset: 'liberal-policy'
+    })
+
+    this.policyTwo = new Policy({
+      game: this,
+      x: this.world.centerX + 200,
+      y: this.world.centerY,
+      asset: 'fascist-policy'
+    })
+
+    this.game.add.existing(this.policy)
+    this.game.add.existing(this.policyTwo)
     this.game.add.existing(this.gameboard);
   }
 
   render () {
-    if (__DEV__) {
-      this.game.debug.spriteInfo(this.mushroom, 32, 32);
-    }
   }
 }
 
