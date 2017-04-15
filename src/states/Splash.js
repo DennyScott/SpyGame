@@ -13,7 +13,8 @@ export default class extends Phaser.State {
     //
     // load your assets
     //
-    this.load.image('mushroom', 'assets/images/mushroom2.png')
+    this.load.image('liberal-policy', 'assets/images/liberal-policy.png')
+    this.load.image('fascist-policy', 'assets/images/fascist-policy.png')
   }
 
   create () {
