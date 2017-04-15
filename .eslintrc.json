@@ -1,7 +1,12 @@
 {
-  "extends": "standard",
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 0,
+    "no-extra-semi": 1,
+    "semi": 2
   }
 }
