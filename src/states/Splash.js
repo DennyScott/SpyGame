@@ -15,6 +15,7 @@ export default class extends Phaser.State {
     //
     this.load.image('liberal-policy', 'assets/images/liberal-policy.png')
     this.load.image('fascist-policy', 'assets/images/fascist-policy.png')
+    this.load.image('liberal-board', 'assets/images/liberal-board.png')
   }
 
   create () {

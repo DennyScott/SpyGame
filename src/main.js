@@ -11,7 +11,7 @@ import config from './config'
 class Game extends Phaser.Game {
   constructor () {
     const docElement = document.documentElement
-    const width = docElement.clientWidth > config.gameWidth ? config.gameWidth : docElement.clientWidth
+    const width = docElement.clientWidth > config.gameWidth ? docElement.clientWidth : docElement.clientWidth
     const height = docElement.clientHeight > config.gameHeight ? config.gameHeight : docElement.clientHeight
 
     super(docElement.clientWidth, docElement.clientHeight, Phaser.AUTO)
