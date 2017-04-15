@@ -1,6 +1,6 @@
 /* globals __DEV__ */
-import Phaser from 'phaser'
-import Policy from '../sprites/Policy'
+import Phaser from 'phaser';
+import Policy from '../sprites/Policy';
 import Gameboard from '../sprites/Gameboard';
 
 export default class extends Phaser.State {
@@ -29,17 +29,17 @@ export default class extends Phaser.State {
       x: this.world.centerX,
       y: this.world.centerY,
       asset: 'liberal-policy'
-    })
+    });
 
     this.policyTwo = new Policy({
       game: this,
       x: this.world.centerX + 200,
       y: this.world.centerY,
       asset: 'fascist-policy'
-    })
+    });
 
-    this.game.add.existing(this.policy)
-    this.game.add.existing(this.policyTwo)
+    this.game.add.existing(this.policy);
+    this.game.add.existing(this.policyTwo);
     this.game.add.existing(this.gameboard);
   }
 
