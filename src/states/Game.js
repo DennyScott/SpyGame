@@ -2,12 +2,15 @@
 import Phaser from 'phaser';
 import Policy from '../sprites/Policy';
 import Gameboard from '../sprites/Gameboard';
+import io from 'socket.io-client';
 
 export default class extends Phaser.State {
   init () {}
   preload () {}
 
   create () {
+    let socket = io.connect('http://localhost:8080', {path: '/stamp'})
+
     const bannerText = 'Phaser + ES6 + Webpack';
     let banner = this.add.text(this.world.centerX, this.game.height - 80, bannerText);
     banner.font = 'Bangers';
